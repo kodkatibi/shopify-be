@@ -32,6 +32,7 @@ class AuthService extends BaseService
      *
      * @param array $data
      * @return Authenticatable|null
+     * @throws LoginException
      */
     public function login(array $data): Authenticatable|null
     {
