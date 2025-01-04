@@ -47,4 +47,9 @@ class BaseService
         return $this->model->where($data)->get();
     }
 
+    public function firstOrCreate(array $attributes, array $data)
+    {
+        return $this->model->firstOrCreate($attributes, $data);
+    }
+
 }

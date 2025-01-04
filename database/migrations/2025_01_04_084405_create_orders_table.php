@@ -17,7 +17,8 @@ return new class extends Migration
             $table->foreignIdFor(Customer::class)->ondelete('cascade');
             $table->string('shopify_id')->unique();
             $table->date('order_date');
-            $table->decimal('amount', 10, 2);
+            $table->boolean('confirmed')->default(false);
+            $table->decimal('amount', 10, 2)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

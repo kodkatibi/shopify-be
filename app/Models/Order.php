@@ -12,6 +12,12 @@ class Order extends Model
         'shopify_id',
         'order_date',
         'amount',
+        'confirmed',
+    ];
+
+    protected $casts = [
+        'order_date' => 'date',
+        'confirmed' => 'boolean',
     ];
 
     /**

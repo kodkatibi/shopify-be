@@ -14,8 +14,9 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class)->ondelete('cascade');
-            $table->string('name');
+            $table->string('shopify_id')->unique();
+            $table->string('name')->nullable();
+            $table->string('last_name');
             $table->string('email')->unique();
             $table->softDeletes();
             $table->timestamps();

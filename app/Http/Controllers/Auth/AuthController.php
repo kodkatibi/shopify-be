@@ -16,6 +16,10 @@ class AuthController extends Controller
 
     protected AuthService $authService;
 
+    /**
+     * AuthController constructor.
+     * @param AuthService $authService
+     */
     public function __construct(AuthService $authService)
     {
         $this->authService = $authService;
