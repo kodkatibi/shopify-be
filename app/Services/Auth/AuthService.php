@@ -31,16 +31,26 @@ class AuthService extends BaseService
      * Login a user
      *
      * @param array $data
-     * @return Authenticatable|null
+     * @return Authenticatable
      * @throws LoginException
      */
-    public function login(array $data): Authenticatable|null
+    public function login(array $data): Authenticatable
     {
         if (Auth::attempt($data)) {
             $user = Auth::user();
             $user->token = $user->createToken('api_token')->plainTextToken;
             return $user;
         }
-       throw new LoginException('Invalid credentials', 401);
+        throw new LoginException('Invalid credentials', 401);
+    }
+
+    /**
+     * Logout a user
+     *
+     * @return void
+     */
+    public function logout(): void
+    {
+        Auth::user()->currentAccessToken()->delete();
     }
 }
